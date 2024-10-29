@@ -24,8 +24,12 @@ def dms2dd(record):
     for j in range(i+1, len(record_strip)):
         if record_strip[j].isalpha():
             break
-    lat_dir = record_strip[j].upper()
-    lat_substr = record_strip[i+1:j].strip()
+    try:     
+        lat_dir = record_strip[j].upper()
+        lat_substr = record_strip[i+1:j].strip()
+    except NameError:
+        lat_dir=""
+        lat_substr=""
     
     try:
         lat_deg = int(lat_substr.split()[0])

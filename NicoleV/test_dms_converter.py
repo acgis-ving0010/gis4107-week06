@@ -71,3 +71,9 @@ def test_dms2dd_no_lat_sec_min():
     expected = -(75+(45/60)+(3/3600)), 45
     actual = d.dms2dd(test_input)
     assert expected == actual  
+
+def test_dms2dd_no_long():
+    test_input = "45 N\n"
+    expected = None,None
+    actual = d.dms2dd(test_input)
+    assert expected == actual  
